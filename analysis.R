@@ -1,11 +1,11 @@
-# install.packages(c("readxl"))  # 若没装
+# install.packages(c("readxl"))  
 library(readxl)
 
 path <- "Personal_Quality_Items_YN.xlsx"
 df <- read_excel(path, sheet = "Personal Qualit
                  y")
 
-# ---- 找出 Day 列（Day1..Day49）----
+# ---- Find Day column（Day1..Day49）----
 day_cols <- grep("^Day\\s*\\d+$", names(df), value = TRUE)
 X <- as.matrix(df[, day_cols])
 storage.mode(X) <- "integer"   # 0/1
